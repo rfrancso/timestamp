@@ -10,7 +10,7 @@ export default function About({ authors, settings }) {
         About
       </h1>
       <div className="text-center">
-        <p className="text-lg">We are a small passionate team.</p>
+        <p className="text-lg">Francisco Rodriguez</p>
       </div>
 
       <div className="mb-16 mt-6 grid grid-cols-3 gap-5 md:mb-32 md:mt-16 md:gap-16">
@@ -38,15 +38,10 @@ export default function About({ authors, settings }) {
 
       <div className="prose mx-auto mt-14 text-center dark:prose-invert">
         <p>
-          We provide real-time connectivity to enable software
-          providers and financial institutions to build integrated
-          products for their small business customers.
+          Welcome to TimeStamp, a platform dedicated to preserving the integrity of journalism through blockchain technology. Here, every article and photo is maintained in an unaltered state and remains accessible, ensuring the trustworthiness of information for future generations. TimeStamp offers journalists and news organizations a secure, immutable repository for their work, enhancing the reliability of digital archives and protecting the accuracy of journalistic content in the digital age.
         </p>
         <p>
-          Our API infrastructure is leveraged by clients ranging from
-          lenders to corporate card providers and business forecasting
-          tools, with use cases including automatic reconciliation,
-          business dashboarding, and loan decisioning.
+          O
         </p>
         <p>
           <Link href="/contact">Get in touch</Link>
