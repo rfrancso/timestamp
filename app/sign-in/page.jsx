@@ -2,24 +2,28 @@
 import Container from "/components/container";
 import { useState } from 'react';
 import Link from "next/link";
-import{useCreateUserWithEmailAndPassword} from 'react-firebase-hooks/auth'
-import {auth} from '/app/firebase/config'
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { auth } from '/app/firebase/config';
+import { useRouter } from "next/navigation";
 
-export default function SignUp() {
+export default function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const [createUserWithEmailAndPassword] = useCreateUserWithEmailAndPassword(auth);
+  const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+  const router = useRouter();
 
-  const handleSignUp = async () => {
+
+  const handleSignIn = async (event) => {
+    event.preventDefault();
     try {
-      const res = await createUserWithEmailAndPassword(email, password)
-      console.log({res})
+      const res = await signInWithEmailAndPassword(email, password);
+      console.log({res}); // You might want to handle redirect or session storage here
       setEmail('');
-      setPassword('')
-
-    } catch(e){
-      console.error(e)
+      setPassword('');
+      router.push("/home/alt")
+    } catch(e) {
+      console.error(e); // Handle errors in a user-friendly way
     }
   };
 
@@ -27,9 +31,9 @@ export default function SignUp() {
     <Container>
       <div className="mx-auto max-w-4xl">
         <h1 className="text-center text-3xl font-semibold my-6 dark:text-white">
-          Sign Up
+          Sign In
         </h1>
-        <form onSubmit={handleSignUp} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <form onSubmit={handleSignIn} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
               Email
@@ -60,11 +64,11 @@ export default function SignUp() {
           </div>
           <div className="flex items-center justify-between">
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-              Sign Up
+              Sign In
             </button>
-            <Link legacyBehavior href={"/sign-in"}>
+            <Link legacyBehavior href={"/sign-up"}>
               <a className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">
-                Already have an account? Log in
+                Need an account? Sign Up
               </a>
             </Link>
           </div>
