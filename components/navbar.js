@@ -50,6 +50,8 @@ export default function Navbar(props) {
       label: "Sign In",
       href: "https://google.com",
       external: true
+
+
     }
   ];
 

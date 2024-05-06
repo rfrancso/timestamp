@@ -1,7 +1,9 @@
 // pages/_app.js or a similar file
-import firebase from '../firebase/firebaseConfig';
+import firebase from '../app/firebase/config';
+// pages/_app.js or a similar file
+import { auth } from '../app/firebase/config';
 
-firebase.auth().onAuthStateChanged(user => {
+auth.onAuthStateChanged(user => {
   if (user) {
     console.log('User is signed in:', user);
     // Update global state or context

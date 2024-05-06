@@ -1,5 +1,5 @@
 // firebase/auth.js
-import firebase from './firebaseConfig';
+import firebase from './config';
 
 export const signUp = (email, password) => {
   return firebase.auth().createUserWithEmailAndPassword(email, password);
