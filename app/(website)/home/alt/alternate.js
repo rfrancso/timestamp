@@ -3,7 +3,7 @@ import Image from 'next/image';
 import React from 'react';
 
 // Define an Article component for reuse
-function Article({ title, author, date, category, imagePath, description }) {
+function Article({ title, author, date, category, imagePath, description, link }) {
   return (
     <article className="border rounded-lg overflow-hidden shadow-lg">
       <Image
@@ -16,7 +16,13 @@ function Article({ title, author, date, category, imagePath, description }) {
       />
       <div className="p-4">
         <p className="text-sm text-gray-500">{category}</p>
-        <h2 className="text-xl font-bold my-2">{title}</h2>
+        <h2 className="text-xl font-bold my-2">
+          {link ? (
+            <Link legacyBehavior href={link}><a>{title}</a></Link>
+          ) : (
+            title
+          )}
+        </h2>
         <p className="text-gray-700 mb-4">{description}</p>
         <div className="text-sm text-gray-500">
           By {author} · {date}
@@ -25,6 +31,7 @@ function Article({ title, author, date, category, imagePath, description }) {
     </article>
   );
 }
+
 
 export default function AltHome() {
   return (
@@ -50,6 +57,7 @@ export default function AltHome() {
               category="Education"
               imagePath="/csc429.jpg"
               description="All students in the CSC429 senior design class excelled, successfully completing their projects and passing the course."
+              link="/csc429"
             />
 
             <Article
@@ -68,6 +76,7 @@ export default function AltHome() {
               category="Technology"
               imagePath="/ai-warfare.jpg"
               description="Recent advancements in artificial intelligence are significantly shaping the strategies employed in modern warfare."
+              link="/war-fare" // Link to the article page
             />
 
             <Article

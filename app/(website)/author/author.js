@@ -1,4 +1,5 @@
-import React from 'react';
+'use client'
+import React, { useState } from 'react';
 
 function ProfilePage() {
   // Mock user data
@@ -6,8 +7,11 @@ function ProfilePage() {
     name: 'Dr. Alireza Izaddoost',
     email: 'Izaddoost@csudh.com',
     bio: 'The best CS professor at California State University Dominguez Hills',
-    avatar: 'csudh-california-state-university-dominguez-hills.jpg' // Ensure this is correct and the image is in the public/images folder
+    avatar: '/professor.jpg'  // Ensure the path is correct
   };
+
+  // State for managing dialogue visibility
+  const [showDialogue, setShowDialogue] = useState(false);
 
   // Styles Object
   const styles = {
@@ -58,6 +62,11 @@ function ProfilePage() {
     }
   };
 
+  // Handle button click
+  const handleButtonClick = () => {
+    alert("Network fees are currently too high, please try again later.");
+  };
+
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>Author Profile</h1>
@@ -72,7 +81,7 @@ function ProfilePage() {
         <h3>About Me</h3>
         <p style={styles.bio}>{user.bio}</p>
       </div>
-      <button style={styles.button}>
+      <button style={styles.button} onClick={handleButtonClick}>
         Post
       </button>
     </div>
