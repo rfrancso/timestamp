@@ -36,13 +36,15 @@ export default function Navbar(props) {
         },
         {
           title: "Author Page",
-          path: "/author/mario-sanchez"
+          path: "/author"
         },
         {
           title: "Search Page",
           path: "/search?q=life"
         },
-        { title: "Archive", path: "/archive" },
+        { title: "Archive",
+          path: "/archive"
+        },
 
       ]
     },
