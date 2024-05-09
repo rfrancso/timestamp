@@ -60,7 +60,7 @@ function ProfilePage() {
 
   return (
     <div style={styles.container}>
-      <h1 style={styles.title}>User Profile</h1>
+      <h1 style={styles.title}>Author Profile</h1>
       <div style={styles.header}>
         <img src={user.avatar} alt="User Avatar" style={styles.avatar} />
         <div style={styles.profileDetails}>
